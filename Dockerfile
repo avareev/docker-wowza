@@ -1,5 +1,4 @@
-FROM ubuntu
-#FROM debian:10-slim
+FROM debian:10-slim
 
 WORKDIR /root
 
@@ -14,5 +13,10 @@ COPY entrypoint.sh entrypoint.sh
 RUN chmod +x install.exp entrypoint.sh wowza-installer.run
 
 RUN expect install.exp
+
+VOLUME /usr/local/WowzaStreamingEngine/conf
+VOLUME /usr/local/WowzaStreamingEngine/applications
+VOLUME /usr/local/WowzaStreamingEngine/content
+VOLUME /usr/local/WowzaStreamingEngine/logs
 
 ENTRYPOINT /root/entrypoint.sh
