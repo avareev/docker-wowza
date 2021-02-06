@@ -14,10 +14,17 @@ COPY entrypoint.sh entrypoint.sh
 
 RUN chmod +x install.exp entrypoint.sh wowza-installer.run
 RUN expect install.exp
-RUN rm /usr/local/WowzaStreamingEngine/conf/Server.license
+
+WORKDIR /usr/local/WowzaStreamingEngine/updates
+COPY updater.sh updater.sh
+RUN ls -la
+RUN chmod +x updater.sh && sh -c "./updater.sh"
+
+WORKDIR /usr/local/WowzaStreamingEngine
+RUN rm -rf updates/* && rm conf/Server.license
 
 # Backups (for volumes)
-RUN mkdir wowza-backup && cp -r /usr/local/WowzaStreamingEngine/conf /root/wowza-backup/conf
+RUN mkdir /root/wowza-backup && cp -r conf /root/wowza-backup/conf
 
 VOLUME /usr/local/WowzaStreamingEngine/conf
 VOLUME /usr/local/WowzaStreamingEngine/applications
