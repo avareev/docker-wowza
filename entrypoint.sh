@@ -1,5 +1,4 @@
 #!/bin/bash
-ls -A /usr/local/WowzaStreamingEngine/conf
 if ! [[ "$(ls -A /usr/local/WowzaStreamingEngine/conf)" ]]
 then
     echo "Wowza Streaming Engine configuration not found. Restoring."
