@@ -17,7 +17,6 @@ RUN expect install.exp
 
 WORKDIR /usr/local/WowzaStreamingEngine/updates
 COPY updater.sh updater.sh
-RUN ls -la
 RUN chmod +x updater.sh && sh -c "./updater.sh"
 
 WORKDIR /usr/local/WowzaStreamingEngine
