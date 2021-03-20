@@ -1,6 +1,6 @@
 #!/usr/bin/expect
 
-# https://github.com/sameersbn/docker-wowza/blob/master/interaction.exp
+# https://github.com/simplycycling/ansible-wowza/blob/f6ed47147d6ab318230f978be99322b9fe58d8eb/templates/script.exp.j2
 
 set timeout -1
 spawn /root/wowza-installer.run
