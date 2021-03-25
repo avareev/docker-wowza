@@ -12,8 +12,11 @@ expect {
 send -- "\ry\r"
 
 # Developer license for install only
-expect -gl "*License Key*"
-send -- "EDEV4-Wbypr-NYfAy-vBHMu-UJMGe-AJUC7-6XQBeEytAZfm\r"
+expect -gl "*License Key*" {
+  exec cp /root/exitzero.sh /usr/local/WowzaStreamingEngine-4.8.11+5/scripts/validatelicense-linux.sh
+  exec cp /root/exitzero.sh /usr/local/WowzaStreamingEngine-4.8.11+5/scripts/validateInstall-linux.sh
+  send -- "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXXXXXXXXXXXX\r"
+}
 
 expect -gl "*User Name*"
 send -- "admin\r"
